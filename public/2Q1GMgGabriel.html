@@ -1,59 +1,418 @@
 <!DOCTYPE html>
-<html lang="en "> 
-<head> 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="2Q 1st Graded"/>
-    <meta name="keywords" content="University of the Philippines, UP, education, Philippines, college, university, school, top 4 universities"/>
-    <meta name="author" content="Cari Gabriel"/>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2Q 1st Graded"> 
+  <meta name="keywords" content="University of the Philippines, UP, education, Philippines, college, university, school, top 4 universities">
+  <meta name="author" content="GABRIEL, Cari">
+  <title>Top Four Universities in the Philippines</title>
+  <link rel="icon" href="../assets/top4univ_favicon2.png" type="image/png"/>
 
-    <title>University of the Philippines</title>
-    <link rel="stylesheet" href="styles.css"/>
-    <link rel="icon" href="./assets/favicon.gif" type="image/gif"/>
-    <script src="script.js" defer></script>
+  <style>
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+    background-color: #f5f7fb;
+    margin: 0;
+    padding: 0;
+    color: #222;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  nav {
+    background: linear-gradient(to right, #4f0000, #9e0000);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background-color: #ffdd00;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after,
+  nav a.active::after {
+    width: 100%;
+  }
+
+  nav a:hover {
+    color: #ffdd00;
+    transform: scale(1.1);
+  }
+  nav a.active {
+    color: #ffdd00;
+    font-weight: 600;
+  }
+
+ 
+  header {
+    position: relative;
+    height: 320px;
+    background: 
+      linear-gradient(to bottom, rgba(40, 0, 0, 0.1) 20%, rgba(60, 0, 0, 0.8) 100%),
+      url("../assets/upd.jpg") no-repeat center/cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(30, 0, 0, 0.1), rgba(40, 0, 0, 0.85));
+    z-index: 1;
+  }
+
+  header * {
+    position: relative;
+    z-index: 2;
+  }
+
+  header img {
+    width: 90px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 0.4rem;
+    animation: fadeInUp 1.4s ease forwards;
+  }
+
+  /* ========== MAIN CONTENT ========== */
+  main {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  h2 {
+    color: #6b0000;
+    border-left: 6px solid #6b0000;
+    padding-left: 12px;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.3px;
+  }
+
+  p {
+    text-align: justify;
+    margin-top: 0.8rem;
+    line-height: 1.8;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 12px;
+    border: 1px solid #d4d7e1;
+    text-align: left;
+  }
+
+  th {
+    background-color: #9e0000;
+    color: white;
+    font-weight: 600;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f4f7fc;
+  }
+
+  tr:hover {
+    background-color: #e7efff;
+    transition: 0.3s;
+  }
+
+ 
+  iframe {
+    display: block;
+    margin: 25px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    max-width: 100%;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    background: linear-gradient(to right, #4f0000, #9e0000);
+    color: white;
+    padding: 1.3rem 0;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  footer a {
+    color: #ffdd00;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div>
 
-        </div>
-    </header>
-    <img src="../assets/up_logo.png" alt="UP logo" width="100" height="115" style="vertical-align: middle;">
-    <h1 style="display: inline-block; vertical-align: middle; margin-left: 10px;">
-    University of the Philippines (UP)
-</h1>
-        <nav>
-            <a href="../index.html"> Home </a></br>
-            <a href="./public/2Q1MgNidea.html"> Ateneo De Manila University (ADMU) </a></br>
-            <a href="./public/2Q1MgEspinosa.html"> De La Salle University (DLSU) </a></br>
-            <a href="./public/2Q1MgRepedro.html"> University of Santo Tomas (UST) </a></br>
-            <a href="#"> Access to Our Project </a></br>
-</nav>
-</br>
-<div style="border: 2px solid #ff4444; padding: 20px; background-color: #fffbe6;">
- <h2>History of UP</h2>
-  <p>
-    The University of the Philippines (UP) was founded on June 18, 1908 by 
-  </p>
-</div>
-<br><img src="../assets/upd.jpg" alt="image.png" width="1000px">
-<div style="border: 2px solid #ff4444; padding: 20px; background-color: #fffbe6;">
- <h2>About UP</h2>
-  <p>
----
-</p>
-</div>
-<div style="border: 2px solid #ff4444; padding: 20px; background-color: #fffbe6;">
- <h2>About UP</h2>
-  <p>
-  ---
-</p>
-</div>
+  <div style="background-color: #f2f0ef; text-align: center; color: #5b0404; padding: 10px;">
+    <h3 style="font-weight: bold; margin: 0;">Top 4 Universities in the Philippines</h3>
+    <h3 style="font-weight: bold; margin: 0;">by Mg11, <em>Mg14</em>, Mg19, and Mg26</h3>
+  </div>
 
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="https://meganrainnidea.github.io/2QPortfolio_MgNIDEA/public/2Q1GMgNidea.html">ADMU</a>
+    <a href="https://cevespinosa.github.io/2QRepositoryMgESPINOSA/public/2Q1GMgEspinosa.html">DLSU</a>
+    <a href="https://maxine0323.github.io/CS3_2ndQtrPortfolio_MgREPEDRO//public/2Q1GMagnesiumRepedro.html">UST</a>
+    <a href="./public/2Q1GMgGabriel.html" class="active">UP</a>
+  </nav>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-wRTqsRh8wg?si=MmQK8eRGywJAg7gA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <!-- HEADER -->
+  <header>
+    <img src="../assets/up_logo.png" alt="UP logo">
+    <h1>University of the Philippines</h1>
+    <p><strong>History, Vision and Mission, and Undergraduate Programs for STEM Students</strong></p>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>History</h2>
+    <p>
+      The University of the Philippines (UP) was founded on June 18, 1908, as a way to fulfill the growing need of the people for an opportunity to pursue studies in medicine, law, engineering, and/or applied sciences. UP is rich in history—from having to transfer campuses post-WWII to battles on campus between UP students protesting police brutality and policemen during former president Ferdinand Marcos' Martial Law. Through it all, UP continues to be a shining example of its core values: Honor, Excellence, and Service to the Nation.
+    </p>
+
+    <img src="https://up.edu.ph/wp-content/uploads/2023/11/Oblation-Plaza-by-Misael-Bacani_4-2048x1024.jpg" alt="University of the Philippines Diliman's Oblation Plaza, as photographed by Misael Bacani">
+
+    <h2>Vision and Mission</h2>
+    <p>
+      A great university, taking a leadership role in the development of a globally competitive Philippines. Driven by:
+    </br>Academic excellence and operational excellence;
+    </br>Strong research and creative capability, supported by an expanded graduate program and geared to addressing the country’s problems;
+    </br>Excellent faculty and staff working in an environment conducive to outstanding performance and high productivity;
+    </br>The best and brightest students from across the country prepared for successful careers and responsive citizenship;
+    </br>Strong support from the alumni and other stakeholders;
+    </br>High visibility and effective public service;
+    </br>Modernized physical facilities and technological infrastructure for teaching, research and administration; and
+    </br>Financial sustainability achieved by resource generation and administrative efficiency, while preserving its public character.
+    </p>
+
+    <h2>Campuses</h2>
+    <p>
+      The University of the Philippines has established numerous campuses and buildings nationally, which, listed from Luzon to Mindanao, are the following:
+      </br>1. UP Baguio
+      </br>2. UPM School of Health Sciences in Baler, Aurora
+      </br>3. UPD Extension Programs in Pampanga and Olongapo
+      </br>4. UP Diliman (Main Campus)
+      </br>5. UP Bonifacio Global City
+      </br>6. UP Manila (Main Campus)
+      </br>7. UP Los Baños (Main Campus)
+      </br>8. UP Open University in Los Baños, Laguna
+      </br>9. UPV Iloilo City, Iloilo
+      </br>10. UP Visayas (Main Campus)
+      </br>11. UP Cebu (Main Campus)
+      </br>12. UP Professional Schools South Road Properties
+      </br>13. UPV Tacloban, Leyte
+      </br>14. UPM School of Health and Sciences in Palo, Leyte
+      </br>15. UP Mindanao (Main Campus)
+      </br>16. UPM School of Health and Sciences in Koronadal, South Cotabato
+    </p>
+
+    <h2>STEM-Related Undergraduate Programs Offered by UPD</h2>
+    <table>
+      <tr>
+        <th>Program</th>
+        <th>Department/College</th>
+      </tr>
+      <tr>
+        <td>BS Applied Physics</td>
+        <td>College of Science</td>
+      </tr>
+      <tr>
+        <td>BS Biology</td>
+        <td>Institute of Biology</td>
+      </tr>
+      <tr>
+        <td>BS Chemical Engineering</td>
+        <td>Department of Chemical Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Chemistry</td>
+        <td>Institute of Chemistry</td>
+      </tr>
+      <tr>
+        <td>BS Civil Engineering</td>
+        <td>Institute of Civil Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Computer Engineering</td>
+        <td>Electrical and Electronics Engineering Institute</td>
+      </tr>
+      <tr>
+        <td>BS Computer Science</td>
+        <td>Department of Computer Science</td>
+      </tr>
+      <tr>
+        <td>BS Electrical Engineering</td>
+        <td>Electrical and Electronics Engineering Institute</td>
+      </tr>
+      <tr>
+        <td>BS Geodetic Engineering</td>
+        <td>Department of Geodetic Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Geography</td>
+        <td>Department of Geography</td>
+      </tr>
+      <tr>
+        <td>BS Geology</td>
+        <td>National Institute of Geological Sciences</td>
+      </tr>
+      <tr>
+        <td>BS Industrial Engineering</td>
+        <td>Department of Industrial Engineering & Operations Research</td>
+      </tr>
+      <tr>
+        <td>BS Materials Engineering</td>
+        <td>Department of Mining, Metallurgical, and Materials Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Mechanical Engineering</td>
+        <td>Department of Mechanical Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Mathematics</td>
+        <td>Institute of Mathematics</td>
+      </tr>
+      <tr>
+        <td>BS Metallurgical Engineering</td>
+        <td>Department of Mining, Metallurgical, and Materials Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Mining Engineering</td>
+        <td>Department of Mining, Metallurgical, and Materials Engineering</td>
+      </tr>
+      <tr>
+        <td>BS Molecular Biology and Biotechnology</td>
+        <td>National Institute of Molecular Biology and Biotechnology</td>
+      </tr>
+      <tr>
+        <td>BS Physics</td>
+        <td>National Institute of Physics</td>
+      </tr>
+      <tr>
+        <td>BS Statistics</td>
+        <td>Department of Statistics</td>
+      </tr>
+    </table>
+
+    <h2>UP Hymn – "UP Naming Mahal"</h2>
+    <p>
+      The University of the Philippines Hymn, <em>"UP Naming Mahal"</em> or <em>"UP Beloved"</em> was composed by Nicanor Abelardo with lyrics by Ildefonso Santos. It is traditionally sung during official university events and ceremonies, embodying the spirit and pride of the UP community.
+    </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-wRTqsRh8wg?si=Q7PiQT7RHyQPv15k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    
+    <h2>Admissions Information</h2>
+    <p>
+      To inquire on how to apply to the University of the Philippines, you may visit their Office of Admissions' website <a href="https://upcat.up.edu.ph">here</a>.
+    </p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 University of the Philippines — All Rights Reserved
+  </footer>
 </body>
-
-
 </html>
